@@ -265,7 +265,12 @@ if (auth == undefined) {
 
                 customers.forEach(cust => {
 
-                    let customer = `<option value='{"id": ${cust._id}, "name": "${cust.name}"}'>${cust.name}</option>`;
+                    let customer = `
+                        <option value='{"id": ${cust._id}, "name": "${cust.name}"}'>
+                            ${cust.name}
+                            (${cust.address})
+                        </option>
+                    `;
                     $('#customer').append(customer);
                 });
 
