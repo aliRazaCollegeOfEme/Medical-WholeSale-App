@@ -236,7 +236,7 @@ margin-right: 30px;
   color: #fff; 
 }
 
-#counter {
+.counter {
   text-align: center !important;
   margin-top: 10px;
   font-size: 32px;

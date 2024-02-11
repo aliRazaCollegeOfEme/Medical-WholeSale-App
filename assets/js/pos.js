@@ -261,9 +261,8 @@ if (auth == undefined) {
                 $('#customer').html(`<option value="0" selected="selected">Walk in customer</option>`);
 
                 customers.forEach(cust => {
-
                     let customer = `
-                        <option value='{"id": ${cust._id}, "name": "${cust.name}"}'>
+                        <option value='{"id": ${cust._id}, "name": "${cust.name}" "address": "${cust.address}"}'>
                             ${cust.name}
                             (${cust.address})
                         </option>
@@ -614,7 +613,6 @@ if (auth == undefined) {
         $("#hold").on('click', function () {
 
             if (cart.length != 0) {
-
                 $("#dueModal").modal('toggle');
             } else {
                 Swal.fire(
@@ -857,7 +855,6 @@ if (auth == undefined) {
                     $(".loading").hide();
                     $("#dueModal").modal('toggle');
                     swal("Something went wrong!", 'Please refresh this page and try again');
-
                 }
             });
 
@@ -1249,7 +1246,6 @@ if (auth == undefined) {
             $('#img').val(allProducts[index].img);
 
             if (allProducts[index].img != "") {
-
                 $('#imagename').hide();
                 $('#current_img').html(`<img src="${img_path + allProducts[index].img}" alt="">`);
                 $('#rmv_img').show();
