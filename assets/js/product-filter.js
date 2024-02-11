@@ -40,7 +40,6 @@ $(document).ready(function(){
         $('.order').show().not(function(){
             return matcher.test($(this).find('.ref_number').text())
         }).hide();
-
     }
 
     var $searchHoldOrder = $("#holdOrderInput").on('input',function () {
@@ -73,8 +72,6 @@ $(document).ready(function(){
         }          
     });
  
-
-
     var $list = $('.list-group-item').click(function () {
        $list.removeClass('active');
        $(this).addClass('active');
@@ -118,5 +115,4 @@ $(document).ready(function(){
             $("#confirmPayment").hide();
         }
     }
-
 })

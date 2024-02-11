@@ -117,9 +117,7 @@ if (auth == undefined) {
     $.get(api + 'users/check/', function (data) { });
     $("#loading").show();
     authenticate();
-
 } else {
-
     $('#loading').show();
 
     setTimeout(function () {
@@ -175,7 +173,6 @@ if (auth == undefined) {
                 vat = parseFloat(settings.percentage);
                 $("#taxInfo").text(settings.charge_tax ? vat : 0);
             }
-
         }, 1500);
 
 

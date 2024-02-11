@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 module.exports = app;
  
 let transactionsDB = new Datastore({
-  filename: process.env.APPDATA+"/POS/server/databases/transactions.db",
+  filename: `${process.env.APPDATA}/POS/server/databases/transactions.db`,
   autoload: true
 });
 
@@ -27,9 +27,6 @@ app.get("/all", function(req, res) {
   });
 });
 
-
-
- 
 app.get("/on-hold", function(req, res) {
   transactionsDB.find(
     { $and: [{ ref_number: {$ne: ""}}, { status: 0  }]},    
@@ -99,15 +96,13 @@ app.get("/by-date", function(req, res) {
 
 app.post("/new", function(req, res) {
   let newTransaction = req.body;
+  console.log({ newTransaction });
   transactionsDB.insert(newTransaction, function(err, transaction) {    
-    if (err) res.status(500).send(err);
-    else {
-     res.sendStatus(200);
+    if (err) return res.status(500).send(err);
+    res.sendStatus(200);
 
-     if(newTransaction.paid >= newTransaction.total){
-        Inventory.decrementInventory(newTransaction.items);
-     }
-     
+    if(newTransaction.paid >= newTransaction.total){
+      Inventory.decrementInventory(newTransaction.items);
     }
   });
 });
