@@ -158,22 +158,27 @@
                                 
                                         <div id="total_sales" class="btn-success">
                                             <h5>SALES</h5>
-                                            <div id="counter">0</div>
+                                            <div id="sales" class="counter">0</div>
+                                        </div>
+
+                                        <div id="total_profit" class="btn-success">
+                                            <h5>PROFIT</h5>
+                                            <div id="profit" class="counter">0</div>
                                         </div>
                                     
                                         <div id="total_transactions" class="btn-warning">
                                             <h5>TRANSACTIONS</h5>
-                                            <div id="counter">0</div>
+                                            <div id="transactions" class="counter">0</div>
                                         </div>
                             
                                         <div id="total_items" class="btn-info">
                                             <h5>ITEMS</h5>
-                                            <div id="counter">0</div>
+                                            <div id="items" class="counter">0</div>
                                         </div>
 
                                         <div id="total_products" class="btn-default">
                                             <h5>PRODUCTS</h5>
-                                            <div id="counter">0</div>
+                                            <div id="products" class="counter">0</div>
                                         </div>
                                                                          
                                     </div>
@@ -403,7 +408,7 @@
                       </div>
                       <div class="col-md-8">
                           <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon3">Purchase Price <span id="price_purchase"></span>
+                            <span class="input-group-addon" id="basic-addon3">Purchase Price <span id="price_purchase_curr"></span>
                             <input id="purchasePrice" readonly type="number"  class="form-control" aria-describedby="basic-addon3">
                           </div>
                           <br>
@@ -560,11 +565,11 @@
                         </div>
                         <div class="form-group">
                             <label for="userName">Purchase Price</label>
-                            <input type="text" required="required" name="purchase_price" placeholder="Price" class="form-control" id="purchase_price">
+                            <input type="text" required="required" name="purchase_price" placeholder="Purchase Price" class="form-control" id="purchase_price">
                         </div>
                         <div class="form-group">
                             <label for="userName">Sale Price</label>
-                            <input type="text" required="required" name="price" placeholder="Price" class="form-control" id="product_price">
+                            <input type="text" required="required" name="price" placeholder="Sale Price" class="form-control" id="product_price">
                         </div>
                         <div class="form-group">
                             <label for="userName">Stock</label>

@@ -233,7 +233,7 @@ margin-right: 30px;
 #totals h5 {
   text-align: center;
   margin: 10px;
-  color: #fff; 
+  color: #fff;
 }
 
 .counter {
@@ -241,4 +241,5 @@ margin-right: 30px;
   margin-top: 10px;
   font-size: 32px;
   width: 100%;
+  color: #fff;
 }
