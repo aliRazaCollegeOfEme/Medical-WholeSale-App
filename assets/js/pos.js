@@ -1438,9 +1438,6 @@ if (auth == undefined) {
             $('#userList').DataTable().destroy();
 
             $.get(api + 'users/all', function (users) {
-
-
-
                 allUsers = [...users];
 
                 users.forEach((user, index) => {
@@ -1490,32 +1487,41 @@ if (auth == undefined) {
             let products = [...allProducts];
             let product_list = '';
             let counter = 0;
+            let total_sale_price = products.reduce((acc, prod) => acc += parseFloat(prod.price), 0);
+            let total_purchase_price = products.reduce((acc, prod) => acc += parseFloat(prod.purchase_price), 0);;
+            let total_stock = products.reduce((acc, prod) => acc += parseInt(prod.quantity), 0);
+
             $('#product_list').empty();
             $('#productList').DataTable().destroy();
+
+            $('#product_list_total_price').html(total_sale_price);
+            $('#product_list_total_pp').html(total_purchase_price);
+            $('#product_list_total_stock').html(total_stock);
 
             products.forEach((product, index) => {
 
                 counter++;
-
+                console.log(product);
                 let category = allCategories.filter(function (category) {
                     return category._id == product.category;
                 });
 
 
                 product_list += `<tr>
-            <td><img id="`+ product._id + `"></td>
-            <td><img style="max-height: 50px; max-width: 50px; border: 1px solid #ddd;" src="${product.img == "" ? "./assets/images/default.jpg" : img_path + product.img}" id="product_img"></td>
-            <td>${product.name}</td>
-            <td>${settings.symbol}${product.price}</td>
-            <td>${settings.symbol}${product.purchase_price}</td>
-            <td>${product.stock == 1 ? product.quantity : 'N/A'}</td>
-            <td>${category.length > 0 ? category[0].name : ''}</td>
-            <td class="nobr"><span class="btn-group">
-                <button onClick="$(this).editProduct(${index})" class="btn btn-warning btn-sm">
-                    <i class="fa fa-edit"></i>
-                </button>
-                <button onClick="$(this).deleteProduct(${product._id})" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
-                </button></span></td></tr>`;
+                    <td><img id="`+ product._id + `"></td>
+                    <td><img style="max-height: 50px; max-width: 50px; border: 1px solid #ddd;" src="${product.img == "" ? "./assets/images/default.jpg" : img_path + product.img}" id="product_img"></td>
+                    <td>${product.name}</td>
+                    <td>${settings.symbol}${product.price}</td>
+                    <td>${settings.symbol}${product.purchase_price}</td>
+                    <td>${product.stock == 1 ? product.quantity : 'N/A'}</td>
+                    <td>${category.length > 0 ? category[0].name : ''}</td>
+                    <td class="nobr"><span class="btn-group">
+                        <button onClick="$(this).editProduct(${index})" class="btn btn-warning btn-sm">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button onClick="$(this).deleteProduct(${product._id})" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                        </button></span></td>
+                </tr>`;
 
                 if (counter == allProducts.length) {
 
@@ -1538,7 +1544,6 @@ if (auth == undefined) {
                         , "paging": false
                     });
                 }
-
             });
         }
 
