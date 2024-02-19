@@ -461,7 +461,6 @@ if (auth == undefined) {
 
             $("#gross_price").text(settings.symbol + grossTotal.toFixed(2));
             $("#payablePrice").val(grossTotal);
-            $("#purchasePrice").val(total_purchase_price);
         };
 
 
